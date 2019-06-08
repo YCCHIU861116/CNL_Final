@@ -16,6 +16,8 @@ import Dashboard from '../content/Dashboard';
 import FormCreate from '../content/FormCreate';
 import FillForm from '../content/FillForm';
 
+
+
 import Axios from 'axios';
 Axios.defaults.withCredentials = true;
 
@@ -28,7 +30,7 @@ class App extends Component {
     this.logOutClicked = this.logOutClicked.bind(this);
 
     this.state = {
-      loggedIn: false,
+      loggedIn: true,
       logOutButtonStatus: 'warning',
       logOutLoadingMessage: 'Log Out',
       logOutLoading: false,
@@ -96,7 +98,7 @@ class App extends Component {
                 <Route exact path='/forms/new' component={FormCreate} />
                 <Route exact path='/forms/:FormId' component={FillForm} />
               </Switch>
-            </div>
+            </div> 
             :
             <Grid>
               <Row>
@@ -121,9 +123,10 @@ class App extends Component {
                   </div>
                 </Col>
               </Row>
-              </Grid>}
-            </BrowserRouter>
-          </div>
+            </Grid>
+	          }
+          </BrowserRouter>
+        </div>
     );
   }
 }

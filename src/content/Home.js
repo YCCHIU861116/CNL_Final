@@ -20,6 +20,14 @@ class Unfilled extends Component {
           title: "Test 1",
           description: "None",
           id: '1'
+        },
+        {
+          isFilled: false,
+          isDue: false,
+          winners: [],
+          title: "Test 4",
+          description: "None",
+          id: '4'
         }
       ]
     };
@@ -31,7 +39,7 @@ class Unfilled extends Component {
       items.push(
         <ul class="list-group"> 
           <li class="list-group-item">
-            <Link to='/forms/:FormId'> {value['title']} </Link>
+            <Link to='/forms/:FormId'> <h3>{value['title']}</h3> </Link>
           </li>
       </ul>
        )
@@ -64,6 +72,14 @@ class Filled extends Component {
           title: "Test 2",
           description: "None",
           id: '2'
+        },
+        {
+          isFilled: true,
+          isDue: false,
+          winners: [],
+          title: "Test 5",
+          description: "None",
+          id: '5'
         }
       ]
     };
@@ -74,9 +90,9 @@ class Filled extends Component {
     for (const [index, value] of this.state.FormList.entries()){
       items.push(
         <ul class="list-group"> 
-          <li class="list-group-item">
+          <h3 class="list-group-item">
             {value['title']}
-          </li>
+          </h3>
         </ul>
        )
     }
@@ -102,12 +118,20 @@ class Due extends Component {
     this.state ={
       FormList:[
         {
-        isFilled: false,
-        isDue: false,
-        winners: ['b05902029'],
+        isFilled: true,
+        isDue: true,
+        winners: ['b05902029','b05902053'],
         title: "Test 3",
         description: "None",
-        id: '3'
+        id: '6'
+        },
+        {
+        isFilled: true,
+        isDue: true,
+        winners: ['b05401029','b05902001'],
+        title: "Test 6",
+        description: "None",
+        id: '6'
         }
       ]
     };
@@ -118,11 +142,21 @@ class Due extends Component {
     for (const [index, value] of this.state.FormList.entries()){
       items.push(
         <ul class="list-group"> 
-          <li class="list-group-item">
+          <h3 class="list-group-title">
             {value['title']}
-          </li>
-        </ul>
+          </h3>
+          <h4 class="list-group-title">
+            Winners:
+          </h4>
+         </ul>
        )
+      value['winners'].forEach(function(item,i,a){
+        items.push( 
+          <li class="list-group-item">
+            {item}
+          </li>
+        )
+      });
     }
     
     return (  

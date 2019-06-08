@@ -56,7 +56,7 @@ class CreateForm extends React.Component {
     Axios.post(window.BACKEND + '/api/forms/', { title: title, description: description, questions: listQuestions })
       .then(json => {
         alert("成功新增表單");
-        this.props.history.push('/home')
+        this.props.history.push('/')
       })
       .catch(err => {
         alert("尷尬...");
@@ -94,7 +94,10 @@ class CreateForm extends React.Component {
         items.push(
           <div>
             <Panel>
-              <Panel.Heading><Panel.Title componentClass="h3">第{index + 1}題</Panel.Title> <Button type="button" bsStyle="danger" value={q_name} className="new" onClick={this.delQuestion}>X 刪除這題</Button></Panel.Heading>
+              <Panel.Heading>
+                <Panel.Title componentClass="h3">第{index + 1}題</Panel.Title> 
+                <Button type="button" bsStyle="danger" value={q_name} className="new" onClick={this.delQuestion}>X 刪除這題</Button>
+              </Panel.Heading>
               <Panel.Body>{value['question_text']}</Panel.Body>
               <Panel.Footer>
               <FormControl componentClass="select" 
