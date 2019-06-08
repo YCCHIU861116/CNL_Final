@@ -217,7 +217,7 @@ class Home extends Component {
         <Row>
         <Col>
         <button onClick ={()=>{window.location.href='forms/new'}}>
-           創建問卷
+           <h3> 創建問卷 </h3>
         </button>
         </Col>
         </Row>
