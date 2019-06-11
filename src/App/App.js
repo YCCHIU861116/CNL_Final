@@ -30,7 +30,7 @@ class App extends Component {
     this.logOutClicked = this.logOutClicked.bind(this);
 
     this.state = {
-      loggedIn: true,
+      loggedIn: false,
       logOutButtonStatus: 'warning',
       logOutLoadingMessage: 'Log Out',
       logOutLoading: false,
@@ -116,10 +116,19 @@ class App extends Component {
                 </Col>
                 <Col xs={12} md={8}>
                   <div className="popularForms">
+                    <div class="panel panel-danger">
+                       <div class="panel-heading">
+                        <h3 class="panel-title">
+                          熱門問卷
+                        </h3>
+                      </div>
+                        <div class="panel-body">
                     <p>form 1</p>
                     <p>form 2</p>
                     <p>form 3</p>
                     <p>form 4</p>
+                        </div>
+                      </div>
                   </div>
                 </Col>
               </Row>
