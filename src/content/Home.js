@@ -36,10 +36,11 @@ class Unfilled extends Component {
   render() {
     const items = []
     for (const [index, value] of this.state.FormList.entries()){
+      var route = '/forms/:'+ value['id']
       items.push(
         <ul class="list-group"> 
           <li class="list-group-item">
-            <Link to='/forms/:FormId'> <h3>{value['title']}</h3> </Link>
+            <Link to= {route}> <h3>{value['title']}</h3> </Link>
           </li>
       </ul>
        )
